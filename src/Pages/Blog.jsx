@@ -1,12 +1,16 @@
 import { useState } from "react";
-import { Link, Outlet, useLoaderData } from "react-router-dom";
+import { Link, Outlet, useLoaderData, } from "react-router-dom";
+
 
 
 const Blog = () => {
-    const [tabIndex, setTabIndex] = useState(0)
+    const [tabIndex, setTabIndex] = useState(0);
+   
     const blog = useLoaderData();
 
-    const { comments_count, title, reading_time_minutes, public_reactions_count, published_at, tags } = blog;
+    const { comments_count, title, reading_time_minutes, public_reactions_count, published_at} = blog;
+
+    
 
     return (
         <div className="max-w-2xl px-6 py-16 mx-auto space-y-12">
@@ -46,6 +50,8 @@ const Blog = () => {
                             <span>Author</span>
                         </Link>
 
+                        {/* bookmark button */}
+
                     </div>
                     {/* tab end */}
 
@@ -58,20 +64,7 @@ const Blog = () => {
 
             </article>
             <div>
-                <div className="flex flex-wrap py-6 gap-2 border-t border-dashed dark:border-gray-600">
-
-{
-    tags.map((tag) =>   <a
-    key={tag} 
-    rel="noopener noreferrer"
-     href="#" 
-     className="px-3 py-1 rounded-sm hover:underline dark:bg-violet-600 dark:text-gray-50">#{tag}</a>
-    )
-}
-
-                   
-                   
-                </div>
+               
                 
             </div>
         </div>
